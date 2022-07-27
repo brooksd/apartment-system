@@ -33,6 +33,16 @@ const Add = ({employees, setEmployees, setIsAdding}) => {
         }
 
         employees.push(newEmployee);
+        setEmployees(employees);
+        setIsAdding(false)
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Added!',
+            text: `${firstName} ${lastName}'s date has been Added`,
+            showConfirmButton: false,
+            timer: 1500
+        });
     }
   return (
     <div>Add</div>
