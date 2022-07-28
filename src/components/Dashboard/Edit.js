@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Swal from 'sweetalert2';
 
 const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
-    
+
   const id = selectedEmployee.id;
 
   const [firstName, setFirstName] = useState(selectedEmployee.firstName);
@@ -53,7 +53,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
   return (
      <div className="small-container">
             <form onSubmit={handleUpdate}>
-                <h1>Edit Employee</h1>
+                <h1>Edit Resident</h1>
                 <label htmlFor="firstName">First Name</label>
                 <input
                     id="firstName"
