@@ -14,11 +14,12 @@ const List = ({ residents, handleEdit, handleDelete }) => {
           <tr>
             <th>No. </th>
             <th>First Name</th>
+            <th>Last Name</th>
             <th>Email</th>
-            <th>Salary</th>
-            <th>date</th>
+            <th>Monthly Rent</th>
+            <th>CheckIn Date</th>
             <th colspan={2} className="text-center">
-              Actions
+              Record Actions
             </th>
           </tr>
         </thead>

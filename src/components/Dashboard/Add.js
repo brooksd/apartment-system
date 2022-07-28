@@ -72,7 +72,7 @@ const Add = ({residents, setResidents, setIsAdding}) => {
                     <input type="submit" value="Add" />
                     <input
                         style={{ marginLeft: '12px' }} className="muted-button" 
-                        type="button" value="Cancel" onClick={() => setIsAdding(false)}
+                        type="button" value="Cancel" onClick={() => setIsAdding(true)}
                     />
                 </div>
         </form>
