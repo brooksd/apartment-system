@@ -1,6 +1,6 @@
 import React from "react";
 
-const List = ({ employees, handleEdit, handleDelete }) => {
+const List = ({ residents, handleEdit, handleDelete }) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -23,18 +23,18 @@ const List = ({ employees, handleEdit, handleDelete }) => {
           </tr>
         </thead>
         <tbody>
-          {employees.length > 0 ? (
-            employees.map((employee, i) => (
-              <tr key={employee.id}>
+          {residents.length > 0 ? (
+            residents.map((resident, i) => (
+              <tr key={resident.id}>
                 <td>{i + 1}</td>
-                <td>{employee.firstName}</td>
-                <td>{employee.lastName}</td>
-                <td>{employee.email}</td>
-                <td>{formatter.format(employee.salary)}</td>
-                <td>{employee.date} </td>
+                <td>{resident.firstName}</td>
+                <td>{resident.lastName}</td>
+                <td>{resident.email}</td>
+                <td>{formatter.format(resident.salary)}</td>
+                <td>{resident.date} </td>
                 <td className="text-right">
                   <button
-                    onClick={() => handleEdit(employee.id)}
+                    onClick={() => handleEdit(resident.id)}
                     className="button muted-button"
                   >
                     Edit
@@ -42,7 +42,7 @@ const List = ({ employees, handleEdit, handleDelete }) => {
                 </td>
                 <td className="text-left">
                   <button
-                    onClick={() => handleDelete(employee.id)}
+                    onClick={() => handleDelete(resident.id)}
                     className="button muted-button"
                   >
                     Delete
@@ -52,7 +52,7 @@ const List = ({ employees, handleEdit, handleDelete }) => {
             ))
           ) : (
             <tr>
-              <td colSpan={7}>No Employees</td>
+              <td colSpan={7}>No Residents</td>
             </tr>
           )}
         </tbody>

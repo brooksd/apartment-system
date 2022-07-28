@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import Swal from 'sweetalert2';
 
-const Edit = ({ residents, selectedEmployee, setResidents, setIsEditing }) => {
+const Edit = ({ residents, selectedResident, setResidents, setIsEditing }) => {
 
-  const id = selectedEmployee.id;
+  const id = selectedResident.id;
 
-  const [firstName, setFirstName] = useState(selectedEmployee.firstName);
-  const [lastName, setLastName] = useState(selectedEmployee.lastName);
-  const [email, setEmail] = useState(selectedEmployee.email);    const [salary, setSalary] = useState(selectedEmployee.salary);
-  const [date, setDate] = useState(selectedEmployee.date);
+  const [firstName, setFirstName] = useState(selectedResident.firstName);
+  const [lastName, setLastName] = useState(selectedResident.lastName);
+  const [email, setEmail] = useState(selectedResident.email);    const [salary, setSalary] = useState(selectedResident.salary);
+  const [date, setDate] = useState(selectedResident.date);
 
   const handleUpdate = e => {
         e.preventDefault();
@@ -22,7 +22,7 @@ const Edit = ({ residents, selectedEmployee, setResidents, setIsEditing }) => {
             });
         }
 
-        const employee = {
+        const resident = {
             id,
             firstName,
             lastName,
@@ -33,7 +33,7 @@ const Edit = ({ residents, selectedEmployee, setResidents, setIsEditing }) => {
 
         for (let i = 0; i < residents.length; i++) {
             if (residents[i].id === id) {
-                residents.splice(i, 1, employee);
+                residents.splice(i, 1, resident);
                 break;
             }
         }
@@ -44,7 +44,7 @@ const Edit = ({ residents, selectedEmployee, setResidents, setIsEditing }) => {
         Swal.fire({
             icon: 'success',
             title: 'Updated!',
-            text: `${employee.firstName} ${employee.lastName}'s data has been updated.`,
+            text: `${resident.firstName} ${resident.lastName}'s data has been updated.`,
             showConfirmButton: false,
             timer: 1500
         });
