@@ -5,19 +5,19 @@ import List from './List'
 import Add from './Add'
 import Edit from './Edit'
 
-import { employeesData } from '../../data';
+import { residentsData } from '../../data';
 
 const Dashboard = () => {
 
-    const [employees, setEmployees] = useState(employeesData);
-    const [selectedEmployee, setSelectedEmployee] = useState(null);
+    const [residents, setResidents] = useState(residentsData);
+    const [selectedResident, setSelectedResident] = useState(null);
     const [isAdding, setIsAdding] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
 
     const handleEdit = (id) => {
-        const [employee] = employees.filter(employee => employee.id === id);
+        const [resident] = residents.filter(resident => resident.id === id);
 
-        setSelectedEmployee(employee);
+        setSelectedResident(resident);
         setIsEditing(true);
     }
 
@@ -31,17 +31,17 @@ const Dashboard = () => {
         cancelButtonText: 'No, cancel!',
         }).then(result => {
             if(result.value) {
-                const [employee] = employees.filter(employee => employee.id === id);
+                const [resident] = residents.filter(resident => resident.id === id);
 
                 Swal.fire({
                     icon: 'success',
                     title: 'Deleted',
-                    text: `${employee.firstName} ${employee.lastName}'s data has been deleted.`,
+                    text: `${resident.firstName} ${resident.lastName}'s data has been deleted.`,
                     showConfirmButton: false,
                     timer: 1500,
                 });
 
-                setEmployees(employees.filter(employee => employee.id !== id));
+                setResidents(resident.filter(resident => resident.id !== id));
             }
         });
     }
@@ -55,7 +55,7 @@ const Dashboard = () => {
                     setIsAdding={setIsAdding}
                 />
                 <List
-                    employees={employees}
+                    residents={residents}
                     handleEdit={handleEdit}
                     handleDelete={handleDelete}
                 />
@@ -65,17 +65,17 @@ const Dashboard = () => {
         {/* Add form */}
         {isAdding && (
             <Add 
-            employees={employees}
-            setEmployees={setEmployees}
+            residents={residents}
+            setResidents={setResidents}
             setIsEditing={setIsEditing} 
             />
         )}
         {/* Edit */}
         {isEditing && (
             <Edit
-                employees={employees}
-                selectedEmployee={selectedEmployee}
-                setEmployees={setEmployees}
+                residents={residents}
+                selectedResident={selectedResident}
+                setResidents={setResidents}
                 setIsEditing={setIsEditing}
             />
             )}
