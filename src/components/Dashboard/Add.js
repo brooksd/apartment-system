@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import Swal from "sweetalert2";
 
-const Add = ({employees, setEmployees, setIsAdding}) => {
+const Add = ({residents, setResidents, setIsAdding}) => {
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -26,14 +26,14 @@ const Add = ({employees, setEmployees, setIsAdding}) => {
             });
         }
 
-        const id = employees.length + 1;
+        const id = residents.length + 1;
         const newEmployee = {
             id, firstName, lastName,
             email, salary, date
         }
 
-        employees.push(newEmployee);
-        setEmployees(employees);
+        residents.push(newEmployee);
+        setResidents(residents);
         setIsAdding(false)
 
         Swal.fire({

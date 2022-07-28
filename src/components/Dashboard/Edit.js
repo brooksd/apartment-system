@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Swal from 'sweetalert2';
 
-const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
+const Edit = ({ residents, selectedEmployee, setResidents, setIsEditing }) => {
 
   const id = selectedEmployee.id;
 
@@ -31,14 +31,14 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
             date
         };
 
-        for (let i = 0; i < employees.length; i++) {
-            if (employees[i].id === id) {
-                employees.splice(i, 1, employee);
+        for (let i = 0; i < residents.length; i++) {
+            if (residents[i].id === id) {
+                residents.splice(i, 1, employee);
                 break;
             }
         }
 
-        setEmployees(employees);
+        setResidents(residents);
         setIsEditing(false);
 
         Swal.fire({
