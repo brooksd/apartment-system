@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
-const List = ({ employees, handleEdit, handleDelete}) => {
-  const formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: null
+const List = ({ employees, handleEdit, handleDelete }) => {
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: null,
   });
 
   return (
@@ -17,48 +17,48 @@ const List = ({ employees, handleEdit, handleDelete}) => {
             <th>Email</th>
             <th>Salary</th>
             <th>date</th>
-            <th colspan={2} className="text-center"> 
-            Actions 
+            <th colspan={2} className="text-center">
+              Actions
             </th>
           </tr>
         </thead>
         <tbody>
           {employees.length > 0 ? (
-                        employees.map((employee, i) => (
-                            <tr key={employee.id}>
-                                <td>{i + 1}</td>
-                                <td>{employee.firstName}</td>
-                                <td>{employee.lastName}</td>
-                                <td>{employee.email}</td>
-                                <td>{formatter.format(employee.salary)}</td>
-                                <td>{employee.date} </td>
-                                <td className="text-right">
-                                    <button
-                                        onClick={() => handleEdit(employee.id)}
-                                        className="button muted-button"
-                                    >
-                                        Edit
-                                    </button>
-                                </td>
-                                <td className="text-left">
-                                    <button
-                                        onClick={() => handleDelete(employee.id)}
-                                        className="button muted-button"
-                                    >
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan={7}>No Employees</td>
-                        </tr>
-                    )}
+            employees.map((employee, i) => (
+              <tr key={employee.id}>
+                <td>{i + 1}</td>
+                <td>{employee.firstName}</td>
+                <td>{employee.lastName}</td>
+                <td>{employee.email}</td>
+                <td>{formatter.format(employee.salary)}</td>
+                <td>{employee.date} </td>
+                <td className="text-right">
+                  <button
+                    onClick={() => handleEdit(employee.id)}
+                    className="button muted-button"
+                  >
+                    Edit
+                  </button>
+                </td>
+                <td className="text-left">
+                  <button
+                    onClick={() => handleDelete(employee.id)}
+                    className="button muted-button"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={7}>No Employees</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
-export default List
+export default List;
