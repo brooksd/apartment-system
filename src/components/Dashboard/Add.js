@@ -46,7 +46,7 @@ const Add = ({employees, setEmployees, setIsAdding}) => {
     }
   return (
     <div className="small-container">
-        <form>
+        <form onSubmit={handleAdd}>
             <h1>Add Resident</h1>
             <label htmlFor="firstName">First Name</label>
             <input id="firstName" type='text' ref={textInput} name="firstName" 
@@ -56,15 +56,15 @@ const Add = ({employees, setEmployees, setIsAdding}) => {
             <input id="lastName" type='text' name="lastName" 
             value={lastName} onChange={e => setLastName(e.target.value)} />
 
-            <label htmlFor="email">First Name</label>
+            <label htmlFor="email">Email</label>
             <input id="email" type='email' name="email" 
             value={email} onChange={e => setEmail(e.target.value)} />
 
-            <label htmlFor="salary">First Name</label>
+            <label htmlFor="salary">Rent</label>
             <input id="salary" type='number' name="salary" 
             value={salary} onChange={e => setSalary(e.target.value)} />
 
-            <label htmlFor="date">First Name</label>
+            <label htmlFor="date">CheckIn Date</label>
             <input id="date" type='date' name="date" 
             value={date} onChange={e => setDate(e.target.value)} />
 
@@ -80,4 +80,4 @@ const Add = ({employees, setEmployees, setIsAdding}) => {
   )
 }
 
-export default Add
+export default Add;

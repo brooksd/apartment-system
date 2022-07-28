@@ -5,7 +5,7 @@ import List from './List'
 import Add from './Add'
 import Edit from './Edit'
 
-import { employeesData } from '../data';
+import { employeesData } from '../../data';
 
 const Dashboard = () => {
 
@@ -41,7 +41,7 @@ const Dashboard = () => {
                     timer: 1500,
                 });
 
-                setEmployees(employees.filter(employee => id !== id));
+                setEmployees(employees.filter(employee => employee.id !== id));
             }
         });
     }
